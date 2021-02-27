@@ -1,21 +1,59 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hack it</title>
-  </head>
-  <body style="display: flex; justify-content: center; align-items: center">
-    <iframe
-      id="player"
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/60g72d4Nqss"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
-    <script src="index.js
-    "></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hack it</title>
+		<!-- Include Handsfree.js -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/handsfree@8.4.2/build/lib/assets/handsfree.css"
+		/>
+		<script src="https://unpkg.com/handsfree@8.4.2/build/lib/handsfree.js"></script>
+	</head>
+
+	<body style="display: flex; justify-content: center; align-items: center">
+		<!-- <script>
+			const handsfree = new Handsfree({ hands: true });
+			handsfree.enablePlugins("browser");
+			handsfree.start();
+		</script> -->
+
+		<script>
+			const handsfree = new Handsfree({
+				hands: true,
+
+				plugin: {
+					pinchScroll: {
+						enabled: true,
+
+						// Number of frames over the same element before activating that element
+						framesToFocus: 10,
+
+						// Number of pixels the middle and thumb tips must be near each other to drag
+						threshold: 50,
+
+						// Number of frames where a hold is not registered before releasing a drag
+						numThresholdErrorFrames: 5,
+
+						// Speed multiplier
+						speed: 0.5,
+					},
+				},
+			});
+			handsfree.enablePlugins("browser");
+			handsfree.start();
+		</script>
+
+		<iframe
+			width="560"
+			height="315"
+			src="https://www.youtube.com/embed/AxrKfVOUKqo"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen
+		></iframe>
+
+		<!-- <script type="text/javascript" src="test.js"></script> -->
+	</body>
 </html>
