@@ -1,9 +1,13 @@
 console.log("Hello")
 
-const video = document.getElementsByClassName("video-stream html5-main-video")[0];
+setTimeout(() => document.getElementsByClassName("video-stream html5-main-video")[0].pause(), 2000);
 
-// pause() in 5s
-setTimeout(() => { video.pause(); }, 5000);
+function pauseIt() {
+    document.getElementsByClassName("video-stream html5-main-video")[0].pause();
+}
 
-// play() in 6s
-setTimeout(() => { video.play(); }, 5000);
+function playIt() {
+    document.getElementsByClassName("video-stream html5-main-video")[0].play();
+}
+
+setTimeout(playIt, 5000);
