@@ -76,17 +76,17 @@
   "browser_action": {
     "default_popup": "/extension/popup/index.html",
     "default_icon": {
-      "16": "/build/docs/favicon.png",
-      "32": "/build/docs/favicon.png",
-      "48": "/build/docs/favicon.png",
-      "128": "/build/docs/favicon.png"
+      // "16": "/build/docs/favicon.png",
+      // "32": "/build/docs/favicon.png",
+      // "48": "/build/docs/favicon.png",
+      // "128": "/build/docs/favicon.png"
     }
   },
     
   "icons": {
-    "16": "/build/docs/favicon.png",
-    "32": "/build/docs/favicon.png",
-    "48": "/build/docs/favicon.png",
-    "128": "/build/docs/favicon.png"
+    // "16": "/build/docs/favicon.png",
+    // "32": "/build/docs/favicon.png",
+    // "48": "/build/docs/favicon.png",
+    // "128": "/build/docs/favicon.png"
   }
 }
