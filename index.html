@@ -1,18 +1,33 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hack it</title>
-  </head>
-  <body style="display: flex; justify-content: center; align-items: center">
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/AxrKfVOUKqo"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hack it</title>
+		<!-- Include Handsfree.js -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/handsfree@8.4.2/build/lib/assets/handsfree.css"
+		/>
+		<script src="https://unpkg.com/handsfree@8.4.2/build/lib/handsfree.js"></script>
+	</head>
+
+	<body style="display: flex; justify-content: center; align-items: center">
+		<!-- Instantiate and start it -->
+		<script>
+			const handsfree = new Handsfree({ hands: true });
+			handsfree.enablePlugins("browser");
+			handsfree.start();
+		</script>
+
+		<iframe
+			width="560"
+			height="315"
+			src="https://www.youtube.com/embed/AxrKfVOUKqo"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen
+		></iframe>
+		<script src="t"></script>
+	</body>
 </html>
