@@ -13,9 +13,34 @@
 	</head>
 
 	<body style="display: flex; justify-content: center; align-items: center">
-		<!-- Instantiate and start it -->
-		<script>
+		<!-- <script>
 			const handsfree = new Handsfree({ hands: true });
+			handsfree.enablePlugins("browser");
+			handsfree.start();
+		</script> -->
+
+		<script>
+			const handsfree = new Handsfree({
+				hands: true,
+
+				plugin: {
+					pinchScroll: {
+						enabled: true,
+
+						// Number of frames over the same element before activating that element
+						framesToFocus: 10,
+
+						// Number of pixels the middle and thumb tips must be near each other to drag
+						threshold: 50,
+
+						// Number of frames where a hold is not registered before releasing a drag
+						numThresholdErrorFrames: 5,
+
+						// Speed multiplier
+						speed: 0.5,
+					},
+				},
+			});
 			handsfree.enablePlugins("browser");
 			handsfree.start();
 		</script>
@@ -28,6 +53,7 @@
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowfullscreen
 		></iframe>
-		<script src="t"></script>
+
+		<!-- <script type="text/javascript" src="test.js"></script> -->
 	</body>
 </html>
