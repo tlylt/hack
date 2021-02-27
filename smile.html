@@ -1,4 +1,14 @@
-<div>Teachable Machine Image Model</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Laugh you lose</title>
+</head>
+<body><div style="display: flex;flex-direction:column;align-items: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fa-0MizbELk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h3 id="lose" style="display: none;">You Laughed!You lose!</h3>
+    <h3 id="win">Not bad!Keep trying...</h3>
 <button type="button" onclick="init()">Start</button>
 <div id="webcam-container"></div>
 <div id="label-container"></div>
@@ -9,7 +19,8 @@
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
     // the link to your model provided by Teachable Machine export panel
-    const URL = "https://teachablemachine.withgoogle.com/models/raGktf6Ze/";
+    // const URL = "./tm-my-image-model/";
+    const URL = "./tm-1/";
 
     let model, webcam, labelContainer, maxPredictions;
 
@@ -45,15 +56,38 @@
         await predict();
         window.requestAnimationFrame(loop);
     }
+    const win = document.querySelector("#win");
+    const lose = document.querySelector("#lose");
 
     // run the webcam image through the image model
+    let counter = 0;
     async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
+        // normal
+        
+        if (prediction[1].probability > prediction[0].probability) {
+            lose.style.display = "none";
+            win.style.display = "initial";
+            counter = 0;
+        } else { // laugh
+            counter++;
+            console.log(counter)
+            if (counter > 15) {
+                lose.style.display = "initial";
+                win.style.display = "none";
+            }
+        }
         for (let i = 0; i < maxPredictions; i++) {
+            
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
         }
     }
 </script>
+
+</div>
+    
+</body>
+</html>
